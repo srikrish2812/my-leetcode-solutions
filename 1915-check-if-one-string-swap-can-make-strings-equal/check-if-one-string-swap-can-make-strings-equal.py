@@ -1,7 +1,7 @@
 class Solution:
     def areAlmostEqual(self, s1: str, s2: str) -> bool:
         """
-        Ideally, the strings should have two differ by only two indices so that
+        Ideally, the strings should differ by only two indices so that
         a single swap in one of the string makes both the strings equal. Now, we
         need to find those indices and make sure the letters also match. We do this
         by:-
