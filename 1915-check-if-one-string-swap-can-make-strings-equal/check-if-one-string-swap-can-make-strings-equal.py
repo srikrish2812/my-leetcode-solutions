@@ -7,6 +7,8 @@ class Solution:
         by:-
         1. Finding the indices where they are different
         """
+        if s1==s2:
+            return True
         indexes = []
         for i in range(len(s1)):
             if s1[i]!=s2[i]:
