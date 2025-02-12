@@ -5,23 +5,23 @@ class Solution:
             s+=n%10
             n=n//10
         return s
-    
-    def sum_pairs(self, l):
-        l.sort()
-        return l[-1]+ l[-2]
-
 
     def maximumSum(self, nums: List[int]) -> int:
         pair_sum = defaultdict(list)
         max_sum=-1
         l = len(nums)
-        for i in range(l):
-            s_i = self.sum_dig(nums[i])
-            pair_sum[s_i].append(nums[i])
+        for num in nums:
+            s_i = self.sum_dig(num)
+            pair_sum[s_i].append(num)
+
+            # this way we only retain the maximum two numbers in a list
+            if len(pair_sum[s_i])>2:
+                pair_sum[s_i].remove(min(pair_sum[s_i]))
+            
         print(pair_sum)
         for l in pair_sum.values():
             if len(l)>=2:
-                print(sum(l))
-                max_sum = max(max_sum, self.sum_pairs(l))
+                max_sum = max(max_sum, sum(l))
+
         return max_sum
             
